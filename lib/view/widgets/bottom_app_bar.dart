@@ -1,6 +1,7 @@
 import 'package:firebase_shop_app/utils/view/constant_routs.dart';
 import 'package:firebase_shop_app/view/screens/cart_screen.dart';
 import 'package:firebase_shop_app/view/screens/favourite_screen.dart';
+import 'package:firebase_shop_app/view/screens/more_screen.dart';
 import 'package:firebase_shop_app/view/screens/orders_screen.dart';
 import 'package:firebase_shop_app/view/screens/products_overview_screen.dart';
 import 'package:firebase_shop_app/view/screens/un_defined_screen.dart';
@@ -17,7 +18,7 @@ class _SharedBottomAppBarState extends State<SharedBottomAppBar> {
 
   String _title = 'Home';
   List<Widget> pages = [
-    CartScreen(),
+    MoreScreen(),
     OrdersScreen(),
     FavouriteScreen(),
     ProductsOverviewScreen(),

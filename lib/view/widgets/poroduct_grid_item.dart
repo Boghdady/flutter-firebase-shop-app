@@ -136,8 +136,20 @@ class ProductGridItem extends StatelessWidget {
                                     color: Color(0xFFD17E50),
                                     fontSize: 14.0)),
                             onTap: () {
-                              cart.addItemToCart(
-                                  product.id, product.title, product.price);
+                              cart.addItemToCart(product.id, product.title,
+                                  product.price, product.imageUrl);
+                              Scaffold.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text('Added it to cart!'),
+                                  duration: Duration(seconds: 2),
+                                  action: SnackBarAction(
+                                    label: 'UNDO',
+                                    onPressed: () {
+                                      cart.removeItemFromCart(product.id);
+                                    },
+                                  ),
+                                ),
+                              );
                             },
                           )
                         ],

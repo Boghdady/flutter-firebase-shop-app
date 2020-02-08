@@ -15,7 +15,7 @@ class ProductDetailsWidget extends StatelessWidget {
       SizedBox(height: 15.0),
       Padding(
         padding: EdgeInsets.only(left: 20.0),
-        child: Text('Cookie',
+        child: Text(product.title,
             style: TextStyle(
                 fontFamily: 'Varela',
                 fontSize: 42.0,
@@ -69,7 +69,8 @@ class ProductDetailsWidget extends StatelessWidget {
               child: InkWell(
             child: ch,
             onTap: () {
-              cart.addItemToCart(product.id, product.title, product.price);
+              cart.addItemToCart(
+                  product.id, product.title, product.price, product.imageUrl);
             },
           ));
         },

@@ -8,6 +8,7 @@ class CartItemWidget extends StatelessWidget {
   final double price;
   final int quantity;
   final String title;
+  final String imageUrl;
 
   CartItemWidget({
     this.itemId,
@@ -15,6 +16,7 @@ class CartItemWidget extends StatelessWidget {
     this.price,
     this.quantity,
     this.title,
+    this.imageUrl,
   });
 
   @override
@@ -36,31 +38,59 @@ class CartItemWidget extends StatelessWidget {
         ),
       ),
       direction: DismissDirection.endToStart,
+      confirmDismiss: (direction) {
+        return showDialog(
+          context: context,
+          builder: (ctx) => AlertDialog(
+            title: Text('Are you sure?'),
+            content: Text('Do you remove the item from the cart?'),
+            actions: <Widget>[
+              FlatButton(
+                child: Text('NO'),
+                onPressed: () {
+                  // false mean we want not to confirm the dismiss
+                  Navigator.of(ctx).pop(false);
+                },
+              ),
+              FlatButton(
+                child: Text('Yes'),
+                onPressed: () {
+                  // false mean we want to confirm the dismiss
+                  Navigator.of(ctx).pop(true);
+                },
+              ),
+            ],
+          ),
+        );
+      },
       onDismissed: (direction) {
         // Using Provider.of not Consumer because Provider.of work as a method
         Provider.of<CartProvider>(context, listen: false)
             .removeItemFromCart(itemId);
       },
-      child: Card(
-        margin: EdgeInsets.symmetric(
-          horizontal: 15,
-          vertical: 4,
-        ),
-        child: Padding(
-          padding: EdgeInsets.all(8),
-          child: ListTile(
-            leading: CircleAvatar(
-              child: Padding(
-                padding: EdgeInsets.all(5),
-                child: FittedBox(
-                  child: Text('\$$price'),
+      child: Padding(
+        padding: EdgeInsets.all(8),
+        child: Column(
+          children: <Widget>[
+            ListTile(
+              leading: Container(
+                height: 75.0,
+                width: 75.0,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: NetworkImage(imageUrl),
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ),
+              title: Text(title),
+              subtitle: Text('Total: \$${(price * quantity)}'),
+              trailing: Text('$quantity x'),
             ),
-            title: Text(title),
-            subtitle: Text('Total: \$${(price * quantity)}'),
-            trailing: Text('$quantity x'),
-          ),
+            Divider(
+              thickness: 0.8,
+            ),
+          ],
         ),
       ),
     );

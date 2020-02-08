@@ -1,5 +1,4 @@
 import 'package:firebase_shop_app/core/providers/orders_provider.dart';
-import 'package:firebase_shop_app/view/widgets/bottom_app_bar.dart';
 import 'package:firebase_shop_app/view/widgets/order_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -10,7 +9,7 @@ class OrdersScreen extends StatelessWidget {
     final orderData = Provider.of<OrdersProvider>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Your Orders'),
+        title: Text('My Orders'),
       ),
       body: ListView.builder(
         itemCount: orderData.orders.length,

@@ -35,7 +35,7 @@ class ThemeManager {
       headline: TextStyle(
           color: Colors.grey[600], fontSize: 22.0, fontWeight: FontWeight.w800),
       title: TextStyle(
-          color: Colors.grey[500], fontSize: 20.0, fontWeight: FontWeight.w600),
+          color: Colors.grey[700], fontSize: 18.0, fontWeight: FontWeight.w500),
       body1: TextStyle(
           color: Colors.grey[500], fontSize: 18.0, fontWeight: FontWeight.w500),
       body2: TextStyle(

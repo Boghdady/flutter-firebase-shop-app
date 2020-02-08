@@ -1,5 +1,6 @@
 import 'package:firebase_shop_app/utils/view/screen_args/product_details_args.dart';
 import 'package:firebase_shop_app/view/screens/cart_screen.dart';
+import 'package:firebase_shop_app/view/screens/my_products_screen.dart';
 import 'package:firebase_shop_app/view/screens/product_details_screen.dart';
 import 'package:flutter/material.dart';
 import '../../utils/view/constant_routs.dart';
@@ -20,6 +21,8 @@ class Router {
                 ));
       case cartScreenRoute:
         return MaterialPageRoute(builder: (_) => CartScreen());
+      case myProductsScreenRoute:
+        return MaterialPageRoute(builder: (_) => MyProductsScreen());
       default:
         return MaterialPageRoute(
           builder: (context) => UndefinedScreen(

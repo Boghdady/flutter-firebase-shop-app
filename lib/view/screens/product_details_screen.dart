@@ -31,7 +31,7 @@ class ProductDetailsScreen extends StatelessWidget {
               Navigator.of(context).pop();
             },
           ),
-          title: Text('Pickup',
+          title: Text(loadedProduct.title,
               style: TextStyle(
                   fontFamily: 'Varela',
                   fontSize: 20.0,

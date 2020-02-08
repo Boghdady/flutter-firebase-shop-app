@@ -2,6 +2,7 @@
 const String productsOverviewRoute = '/';
 const String productDetailsRoute = '/productDetailsScreen';
 const String cartScreenRoute = '/cartScreen';
+const String myProductsScreenRoute = '/myProductsScreen';
 
 // ========== URLs ============= //
 const String base_url = 'http://127.0.0.1:8000/api/v1';

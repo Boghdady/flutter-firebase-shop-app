@@ -42,6 +42,7 @@ class CartProvider with ChangeNotifier {
               id: existingCartItem.id,
               title: existingCartItem.title,
               price: existingCartItem.price,
+              imageUrl: existingCartItem.imageUrl,
               quantity: existingCartItem.quantity + 1,
             ));
     notifyListeners();
@@ -54,6 +55,7 @@ class CartProvider with ChangeNotifier {
               id: existingCartItem.id,
               title: existingCartItem.title,
               price: existingCartItem.price,
+              imageUrl: existingCartItem.imageUrl,
               quantity: (existingCartItem.quantity == 0)
                   ? 0
                   : existingCartItem.quantity - 1,
@@ -61,7 +63,8 @@ class CartProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void addItemToCart(String productId, String title, double price) {
+  void addItemToCart(
+      String productId, String title, double price, String imageUrl) {
     // Check if cart contain product
     if (_cartItems.containsKey(productId)) {
       // Increase quantity
@@ -71,6 +74,7 @@ class CartProvider with ChangeNotifier {
                 id: existingCartItem.id,
                 title: existingCartItem.title,
                 price: existingCartItem.price,
+                imageUrl: existingCartItem.imageUrl,
                 quantity: existingCartItem.quantity + 1,
               ));
     } else {
@@ -80,6 +84,7 @@ class CartProvider with ChangeNotifier {
           () => CartItem(
                 id: productId,
                 title: title,
+                imageUrl: imageUrl,
                 quantity: 1,
                 price: price,
               ));
