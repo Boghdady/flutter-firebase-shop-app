@@ -1,4 +1,5 @@
 import 'package:firebase_shop_app/utils/view/screen_args/product_details_args.dart';
+import 'package:firebase_shop_app/view/screens/add_edit_product_screen.dart';
 import 'package:firebase_shop_app/view/screens/cart_screen.dart';
 import 'package:firebase_shop_app/view/screens/my_products_screen.dart';
 import 'package:firebase_shop_app/view/screens/product_details_screen.dart';
@@ -23,6 +24,8 @@ class Router {
         return MaterialPageRoute(builder: (_) => CartScreen());
       case myProductsScreenRoute:
         return MaterialPageRoute(builder: (_) => MyProductsScreen());
+      case addEditProductScreenRoute:
+        return MaterialPageRoute(builder: (_) => AddEditProductScreen());
       default:
         return MaterialPageRoute(
           builder: (context) => UndefinedScreen(
